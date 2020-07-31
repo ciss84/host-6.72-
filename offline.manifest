@@ -25,6 +25,7 @@ PAYLOADS\kernelClock.js
 PAYLOADS\restoreDTB.js
 PAYLOADS\rifs.js
 PAYLOADS\dumper2.js
+PAYLOADS\trainer.html
 PAYLOADS\binloader\c-code.js
 PAYLOADS\binloader\mira.js
 PAYLOADS\mirahen\c-code.js

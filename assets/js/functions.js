@@ -241,6 +241,7 @@ function buildHTML() {
         "</header>" +
         '<table id="table">' +
         '<tr align="center">' +
+        '<th><a href="#" class="btn" onclick="inject_payload(\'trainer\'); return false">trainer</a></th>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'dumper\'); return false">Dumper</a></th>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'dumper2\'); return false">Dumper v1.8</a></th>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'app2usb\'); return false">App2Usb</a></th>' +
