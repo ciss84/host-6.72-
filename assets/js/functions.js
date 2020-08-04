@@ -120,7 +120,7 @@ function mira2_finished() {
   document.getElementById("cs-loader").style.display = "none";
   setTimeout(function () {
     document.getElementById("message").innerText =
-      'Todex est maintenant démarrer!\nPatientez jusqu\'à la notification "Mémoire système insuffisante"';
+      'Le Bin Loader est maintenant démarrer!\nPatientez jusqu\'à la notification "Mémoire système insuffisante"';
     /*setTimeout(function () {
       document.location.href = ".";
       read_ptr_at(0);
@@ -217,7 +217,7 @@ function buildHTML() {
         '<a href="#" class="btnHeader" onclick="load_JB(); return false">Jailbreak</a>' +
         '<a href="#" class="btnHeader" onclick="load_mira1(); return false">MiraHen Todex</a>' +     
         '<a href="#" class="btnHeader" onclick="load_mira(); return false">MiraUsb ELF Loader</a>' +      
-        '<a href="#" class="btnHeader" onclick="load_binloader(); return false">BinLoader</a>' +
+        '<a href="#" class="btnHeader" onclick="load_mira2(); return false">BinLoader</a>' +
 
         "</div>" +
         "</header>" +
