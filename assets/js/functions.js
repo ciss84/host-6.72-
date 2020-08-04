@@ -82,21 +82,21 @@ function jb_finished() {
 }
 function binloader_finished() {
   document.getElementById("cs-loader").style.display = "none";
-  document.getElementById("message").innerText = "Charge utile bien envoyé...";
   setTimeout(function () {
     document.getElementById("message").innerText =
-      "Relancez Binloader pour une autre charge utile";
-    setTimeout(function () {
-      document.getElementById("message").innerText = " ";
-      removeScript(2);
-    }, 3000);
-  }, 3000);
+      'Mira + HEN est maintenant démarrer!\nPatientez jusqu\'à la notification "Mémoire système insuffisante"';
+    /*setTimeout(function () {
+      document.location.href = ".";
+      read_ptr_at(0);
+      notif(" ");
+    }, 6000);*/
+  }, 6000);
 }
 function mira_finished() {
   document.getElementById("cs-loader").style.display = "none";
   setTimeout(function () {
     document.getElementById("message").innerText =
-      'Mira + HEN est maintenant démarrer!\nPatientez jusqu\'à la notification "Mémoire système insuffisante"';
+      'MiraUsb ELF Loader est maintenant démarrer!\nPatientez jusqu\'à la notification "Mémoire système insuffisante"';
     /*setTimeout(function () {
       document.location.href = ".";
       read_ptr_at(0);
@@ -108,7 +108,7 @@ function mira1_finished() {
   document.getElementById("cs-loader").style.display = "none";
   setTimeout(function () {
     document.getElementById("message").innerText =
-      'Mira + HEN est maintenant démarrer!\nPatientez jusqu\'à la notification "Mémoire système insuffisante"';
+      'MiraHen Todex est maintenant démarrer!\nPatientez jusqu\'à la notification "Mémoire système insuffisante"';
     /*setTimeout(function () {
       document.location.href = ".";
       read_ptr_at(0);
@@ -120,7 +120,7 @@ function mira2_finished() {
   document.getElementById("cs-loader").style.display = "none";
   setTimeout(function () {
     document.getElementById("message").innerText =
-      'Mira + HEN est maintenant démarrer!\nPatientez jusqu\'à la notification "Mémoire système insuffisante"';
+      'Todex est maintenant démarrer!\nPatientez jusqu\'à la notification "Mémoire système insuffisante"';
     /*setTimeout(function () {
       document.location.href = ".";
       read_ptr_at(0);
@@ -152,34 +152,6 @@ function load_JB() {
     document.body.appendChild(element);
   }, 2000);
 }
-
-function load_binloader() {
-  if(readcookie() == "payload"){
-    read_ptr_at(0);
-    document.cookie = "exploit=binloader";
-  } else {
-    buildHTML();
-  document.getElementById("message").innerText = "Injection de Binloader";
-  document.getElementById("cs-loader").style.display = "block";
-  setTimeout(function () {
-    document.getElementById("message").innerText =
-      "Utilisez PS4 Injector sur port 9021.Cliquez sur Connecter...";
-    setTimeout(function () {
-      document.getElementById("message").innerText =
-        'Attedez la notification "Wait for clients"';
-      setTimeout(function () {
-        document.getElementById("message").innerText =
-          "En attente de charge utile";
-
-        setTimeout(function () {
-          document.write(BINLOADER("mira") + BINLOADER("c-code"));
-        }, 1000);
-      }, 4000);
-    }, 4000);
-  }, 4000);
-  }
-  
-}
 function load_mira() {
   document.cookie = "exploit=payload";
   buildHTML();
@@ -207,6 +179,17 @@ function load_mira2() {
     document.write(MIRA("mira") + MIRA("todex") + MIRA("c-code"));
   }, 1000);
 }
+
+function load_binloader() {
+  document.cookie = "exploit=payload";
+  buildHTML();
+  document.getElementById("message").innerText = "Injectet votre bin par netcat";
+  document.getElementById("cs-loader").style.display = "block";
+  setTimeout(function () {
+    document.write(MIRA("mira") + MIRA("mirahen2") + MIRA("c-code"));
+  }, 1000);
+}
+
 function inject_payload(payload) {
   document.cookie = "exploit=payload";
   buildHTML();
@@ -232,15 +215,14 @@ function buildHTML() {
         "</div>" +
         '<div class="container headerbtn" align="center" id="header">' +
         '<a href="#" class="btnHeader" onclick="load_JB(); return false">Jailbreak</a>' +
-        '<a href="#" class="btnHeader" onclick="load_mira(); return false">MiraUsb Loader</a>' +
-        '<a href="#" class="btnHeader" onclick="load_mira1(); return false">MiraHen Todex</a>' +       
+        '<a href="#" class="btnHeader" onclick="load_mira1(); return false">MiraHen Todex</a>' +     
+        '<a href="#" class="btnHeader" onclick="load_mira(); return false">MiraUsb ELF Loader</a>' +      
         '<a href="#" class="btnHeader" onclick="load_binloader(); return false">BinLoader</a>' +
 
         "</div>" +
         "</header>" +
         '<table id="table">' +
         '<tr align="center">' + 
-        '<a href="#" class="btnHeader" onclick="load_mira2(); return false">ps4trainer</a>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'dumper\'); return false">Dumper</a></th>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'dumper2\'); return false">Dumper v1.8</a></th>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'app2usb\'); return false">App2Usb</a></th>' +
