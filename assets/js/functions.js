@@ -228,20 +228,18 @@ function buildHTML() {
         "<body>" +
         "<header>" +
         '<div class="content-title">' +
-        '<h1 id="title">Jailbreak Fw 6.72</h1>' +
+        '<h1 id="title">Host 6.72 Mod by Mugiwara</h1>' +
         "</div>" +
-        '<div class="container headerbtn" align="center" id="header">' + 
-        '<a href="#" class="btnHeader" onclick="load_JB(); return false">Jailbreak</a>' + 
-        '<a href="#" class="btnHeader" onclick="load_mira(); return false">Mira Usb Loader(Jb)</a>' +
-        '<a href="#" class="btnHeader" onclick="load_mira1(); return false">Mira + Hen</a>' + 
-        '<a href="#" class="btnHeader" onclick="load_mira2(); return false">Swap To Dex</a>' +       
+        '<div class="container headerbtn" align="center" id="header">' +
+        '<a href="#" class="btnHeader" onclick="load_JB(); return false">Jailbreak</a>' +
+        '<a href="#" class="btnHeader" onclick="load_mira(); return false">MiraUsb Loader</a>' +
+        '<a href="#" class="btnHeader" onclick="load_mira1(); return false">MiraHen Todex</a>' +       
         '<a href="#" class="btnHeader" onclick="load_binloader(); return false">BinLoader</a>' +
 
         "</div>" +
         "</header>" +
         '<table id="table">' +
-        '<tr align="center">' +
-        '<th><a href="#" class="btn" onclick="inject_payload(\'trainer\'); return false">trainer</a></th>' +
+        '<tr align="center">' + 
         '<th><a href="#" class="btn" onclick="inject_payload(\'dumper\'); return false">Dumper</a></th>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'dumper2\'); return false">Dumper v1.8</a></th>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'app2usb\'); return false">App2Usb</a></th>' +
@@ -258,6 +256,10 @@ function buildHTML() {
         '<th><a href="#" class="btn" onclick="inject_payload(\'dumperKernel\'); return false">Dumper Noyau</a></th>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'fan\'); return false">Ventilo Turbo</a></th>' +
         '<th><a href="#" class="btn" onclick="inject_payload(\'kernelClock\'); return false">Horloge noyau</a></th>' +
+        "</tr>" +
+        '<tr align="center">' +
+        '<th><a href="#" class="btn" onclick="inject_payload(\'WebRTE\'); return false">Activation Du WebRTE</a></th>' +
+        '<th><a href="#" class="btn" onclick="inject_payload(\'linux\'); return false">Activation De Linux</a></th>' +
         "</tr>" +
         "</table>" +
         "<footer>" +

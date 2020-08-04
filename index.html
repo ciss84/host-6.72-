@@ -6,20 +6,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>PS4Host_6.72 V2.0.1 par Logic-68 C.S</title>
-    <link rel="stylesheet" href="css/anim.css">
-    <link rel="stylesheet" href="css/icons.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/custom.css"> 
+    <link rel="stylesheet" href="./assets/css2/style.css">  
 </head>
 <body>
     <script src="./assets/js/functions.js"></script>
     <script>function print() { }</script>
     <script src="common/exploit.js"></script>
-    <script src="common/helpers.js"></script>
-    <script src="common/malloc.js"></script>
-    <script src="common/rop.js"></script>
-    <script src="common/syscalls.js"></script>
-    <script src="common/syscalls2.js"></script>
     <script>
         function SC(x) {
             return '<script src="' + x + '.js"></scr' + "ipt>";
@@ -55,18 +47,17 @@
     </script>
     <header id="header">
         <div class="content-title">
-            <h1 id="title">Jailbreak Fw 6.72</h1>
+            <h1 id="title">Host 6.72 Mod by Mugiwara</h1>
         </div>
     </header>
     <div id="headerbtn" class="headerbtn" align="center">
-        <a href="#" class="btnHeader" onclick="load_mira(); return false">Mira Usb Loader</a>
-        <a href="#" class="btnHeader" onclick="load_mira1(); return false">Mira + Hen</a>
-        <a href="#" class="btnHeader" onclick="load_mira2(); return false">Swap to dex</a>
+        <a href="#" id="jb" class="btnHeader" onclick="load_JB(); return false">Jailbreak</a> 
+        <a href="#" class="btnHeader" onclick="load_mira(); return false">MiraUsb Loader</a>
+        <a href="#" class="btnHeader" onclick="load_mira1(); return false">MiraHen Todex</a>
         <a href="#" class="btnHeader" onclick="load_binloader(); return false">BinLoader</a>
     </div>
     <table>
         <tr align="center">
-            <a href="#" id="jb" class="btnHeader" onclick="load_JB(); return false">Jailbreak</a>
             <th><a href="#" class="btn" onclick="inject_payload('dumper'); return false">Dumper</a></th>
             <th><a href="#" class="btn" onclick="inject_payload('dumper2'); return false">Dumper v1.8</a></th>
             <th><a href="#" class="btn" onclick="inject_payload('app2usb'); return false">App2Usb</a></th>
@@ -84,6 +75,10 @@
             <th><a href="#" class="btn" onclick="inject_payload('fan'); return false">Ventilo Turbo</a></th>
             <th><a href="#" class="btn" onclick="inject_payload('kernelClock'); return false">Horloge noyau</a></th>
         </tr>
+        <tr align="center"> 
+            <th><a href="#" class="btn" onclick="inject_payload('WebRTE'); return false">Activation Du WebRTE</a></th>
+            <th><a href="#" class="btn" onclick="inject_payload('linux'); return false">Activation De Linux</a></th>
+        </tr>        
     </table>
     <footer>
         <div id="message" class="message"></div>
@@ -109,8 +104,7 @@ function getEnvironmentInfo() {
     return s;
 }
 </script>
-<h1 class="hide" id="hide"onclick="DebugMode()"><script>document.write(getEnvironmentInfo());
-</script></h1>
+ <h2 class="hide" id="hide"onclick="DebugMode()"><script>document.write(getEnvironmentInfo());
+</script></h2> 
 </body>
-
 </html>

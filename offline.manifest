@@ -1,15 +1,6 @@
 CACHE MANIFEST 
 index.html
-assets\css\style.css
-assets\img\0.jpg
-assets\js\functions.js
 common\exploit.js
-common\helpers.js
-common\malloc.js
-common\rop.js
-common\syscalls.js
-common\syscalls2.js
-css\style.css
 jb\c-code.js
 PAYLOADS\app2usb.js
 PAYLOADS\backupDTB.js
@@ -25,11 +16,16 @@ PAYLOADS\kernelClock.js
 PAYLOADS\restoreDTB.js
 PAYLOADS\rifs.js
 PAYLOADS\dumper2.js
-PAYLOADS\trainer.html
+PAYLOADS\WebRTE.js
+PAYLOADS\linux.js
 PAYLOADS\binloader\c-code.js
 PAYLOADS\binloader\mira.js
 PAYLOADS\mirahen\c-code.js
 PAYLOADS\mirahen\mirausb.js
-PAYLOADS\mirahen\todex.js
 PAYLOADS\mirahen\mirahen.js
+PAYLOADS\mirahen\todex.js
 PAYLOADS\mirahen\mira.js
+assets\css\style.css
+assets\img\0.jpg
+assets\js\functions.js
+assets\css2\style.css
