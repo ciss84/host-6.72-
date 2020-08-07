@@ -1,113 +1,129 @@
 <html manifest="offline.manifest">
-    <!--<html>-->
+  <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/fw.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>PS4Host_6.72 V2.0.1 par Logic-68 C.S</title>  
+  <meta charset="utf-8" />
+  <title>PS4HostCS V2.0.4 par Logic-68 C.S</title>
+  <link rel="stylesheet" href="assets/css/default.css">
 </head>
+
 <body>
-    <script src="./assets/js/functions.js"></script>
-    <script>function print() { }</script>
-    <script src="common/exploit.js"></script>
-    <script src="jb/c-code.js"></script>
-    <script>
-        function SC(x) {
-            return '<script src="' + x + '.js"></scr' + "ipt>";
-          }
-          function COMMON(x) {
-            return SC("common/" + x);
-          }
-          function BINLOADER(x) {
-            return SC("PAYLOADS/binloader/" + x);
-          }
-          function MIRA(x) {
-            return SC("PAYLOADS/mirahen/" + x);
-          }
-          
-          function JB(x) {
-            return "jb/" + x + ".js";
-          }
-          function WEBKIT(x) {
-            return "common/" + x + ".js";
-          }
-          function MIRABASE(x) {
-            return "PAYLOADS/mirahen/" + x + ".js";
-          }
-          /*
-          function SCPAYLOAD(x) {
-            return "PAYLOADS/" + x + ".js";
-          }*/
-          function SCPAYLOAD(x) {
-            return SC("PAYLOADS/" + x );
-          }
-        document.cookie = "exploit=jailbreak";
-                                              
-    </script>
-    <header id="header">
-        <div class="content-title">
-            <h1 id="title">Host 6.72 Mod by Mugiwara</h1>
-        </div>
-    </header>
-    <div id="headerbtn" class="headerbtn" align="center">
-        <a href="#" id="jb" class="btnHeader" onclick="load_JB(); return false">Jailbreak</a> 
-        <a href="#" class="btnHeader" onclick="load_mira1(); return false">MiraHen Todex</a>
-        <a href="#" class="btnHeader" onclick="load_mira(); return false">MiraUsb ELF Loader</a>        
-        <a href="#" class="btnHeader" onclick="load_binloader(); return false">BinLoader</a>
+  <script>
+  	document.body.style.backgroundImage = "url('assets/img/0.jpg')";
+    document.cookie = "exploit=null";
+    document.cookie = "fan=55";
+    document.cookie = "levelTemp=55";
+    var ua = navigator.userAgent;
+    var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
+    if (fwVersion === "6.72" || fwVersion === "7.51"|| fwVersion === "8.00") {
+      var i = 0;
+      var msg = "Toutes nos félicitations! Nous avons détecté que votre PlayStation 4 fonctionne sous FW " + fwVersion + ", qui est compatible avec PS4HostCS";
+      window.applicationCache.ondownloading = function () {
+        document.getElementById("alertfw").innerHTML = '<div class="green">' + msg + "</div>";
+      };
+      window.applicationCache.onprogress = function (a) {
+        document.getElementById("cache-overlay").style.display = "block";
+        document.getElementById("progress").innerHTML = '<div align="center" id="myBar"></div>';
+
+        i = Math.round(100 * (a.loaded / a.total));
+        document.getElementById("myBar").style.width = i + "%";
+        if (i == 0) { document.getElementById("myBar").innerHTML = ""; } else { document.getElementById("myBar").innerHTML = i + "%"; }
+      };
+      window.applicationCache.oncached = function () {
+        document.getElementById("cache-overlay").style.display = "none";
+        document.getElementById("alertfw").innerHTML = "";
+        document.getElementById("message").innerHTML = '<div align="center" style="color:green">Mise en cache réussi</div>';
+        setTimeout(function () {
+          document.getElementById("message").innerHTML = '<div align="center" style="color:white">Fermez votre Navigateur, couper l\'Internet, puis ouvrez a nouveau votre Navigateur</div>';
+          setTimeout(function () {
+            document.getElementById("message").innerHTML = "";
+          }, 6000);
+        }, 2000);
+      };
+    } else {
+      var alertfirmware = true;
+    }
+  </script>
+  <script src="assets/js/functions.js"></script>
+  <script>function print() { }</script>
+  <script src="common/exploit.js"></script>
+  <header id="header">
+    <div class="content-title">
+      <h1 id="title">Jailbreak Fw 6.72</h1>
+      <hr>
     </div>
-    <table>
-        <tr align="center">      
-            <th><a href="#" class="btn" onclick="inject_payload('dumper'); return false">Dumper</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('dumper2'); return false">Dumper v1.8</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('app2usb'); return false">App2Usb</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('ftp'); return false">FTP</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('desabler'); return false">Désactiver MAJ</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('enabler'); return false">Activer MAJ</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('history'); return false">Historique navigateur</a></th>
-
-        </tr>
-        <tr align="center">
-            <th><a href="#" class="btn" onclick="inject_payload('browser'); return false">Activer navigateur</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('backupDTB'); return false">SAV DTB</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('restoreDTB'); return false">Restaure DTB</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('rifs'); return false">Rennomer RIF</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('dumperKernel'); return false">Dumper Noyau</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('fan'); return false">Ventilo Turbo</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('kernelClock'); return false">Horloge noyau</a></th>
-        </tr>
-        <tr align="center"> 
-            <th><a href="#" class="btn" onclick="inject_payload('WebRTE'); return false">Activation Du WebRTE</a></th>
-            <th><a href="#" class="btn" onclick="inject_payload('linux'); return false">Activation De Linux</a></th>
-            <th><a href="http://ps4trainer.com/Trainer/index.html" class="btn">PS4 Trainer</a></th> 
-        </tr>  			           
-    </table>
-    <footer>
-        <div id="message" class="message"></div>
-        <div id="cs-loader" class="cs-loader">
-            <div class="cs-loader-inner">
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-            </div>
-        </div>
-        <div class="overlay" id="cache-overlay">
-            <div id="progress"></div>
-        </div>              
-</footer>
-<script>        
-function getEnvironmentInfo() {
-    var s = ' - ';
-    s += navigator.userAgent;
-
-    return s;
-}
-</script>
- <h2 class="hide" id="hide"onclick="DebugMode()"><script>document.write(getEnvironmentInfo());
-</script></h2> 
+  </header>
+  <div id="menulist" class="container">
+    <ul id="menu">
+      <li id="li0"><a href="#" class="deroulant" id="deroulant0">Exploits</a>
+        <ul class="submenu" id="submenu0">
+          <li><a href="#" id="jailbreak" class="submenua" onclick="load_JB(); return false">Jailbreak</a></li>
+          <li><a href="#" id="mirausb" class="submenua" onclick="inject_payload('mirausb'); return false">MiraLoader Usb</a></li>     
+          <li><a href="#" id="binloader" class="submenua" onclick="load_binloader(); return false">Binloader</a></li>
+        </ul>
+      </li>
+      <li id="li1"><a href="#" class="deroulant" id="deroulant1">Hen</a>
+        <ul class="submenu" id="submenu1">
+          <!--<li><a href="#" id="mirahen" class="submenua" onclick="load_mira(); return false">Mira+HEN</a></li>-->
+          <li><a href="#" id="mirahen" class="submenua" onclick="load_mira(); return false">Mirahen By Mugiwara</a></li>
+        </ul>
+      </li>
+      <li id="li2"><a href="#" class="deroulant" id="deroulant2">Navigateur</a>
+        <ul class="submenu" id="submenu2">
+          <li><a href="#" id="history" onclick="inject_payload('history'); return false">Activer Historique</a></li>
+          <li><a href="#" id="browser" onclick="inject_payload('browser'); return false">Activer Navigateur</a></li>
+          <li><a href="http://ps4trainer.com/Trainer/index.html" id="ps4trainer">PS4 Trainer</a></li> 
+        </ul>
+      </li>
+      <li id="li3"><a href="#" class="deroulant" id="deroulant3">Applications</a>
+        <ul class="submenu" id="submenu3">          
+          <li><a href="#" id="app2usb" onclick="inject_payload('app2usb'); return false">App2Usb</a></li>
+          <li><a href="#" id="rifs" onclick="inject_payload('rifs'); return false">Renomer RIF</a></li>
+          <li><a href="#" id="WebRTE" onclick="inject_payload('WebRTE'); return false">WebRTE</a></li>
+        </ul>
+      </li>
+      <li id="li4"><a href="#" class="deroulant" id="deroulant4">Système FTP</a>
+        <ul class="submenu" id="submenu4">
+          <li><a href="#" id="ftp" onclick="inject_payload('ftp'); return false">FTP VTX</a></li>
+          <li><a href="#" id="linux" onclick="inject_payload('linux'); return false">Linux Loader</a></li>
+          <li><a href="#" id="dumper" onclick="inject_payload('dumper'); return false">Dumper</a></li>
+          <li><a href="#" id="dumper2" onclick="inject_payload('dumper2'); return false">Dumper v1.8</a></li>                    
+          <li><a href="#" id="dumperkernel" onclick="inject_payload('dumperKernel'); return false">Dumper Noyau</a></li>
+          <li><a href="#" id="kernelclock" onclick="inject_payload('kernelClock'); return false">Horloge Noyau</a></li> 
+        </ul>
+      </li>
+      <li id="li5"><a href="#" class="deroulant" id="deroulant5">Mise à jour</a>
+        <ul class="submenu" id="submenu5">
+          <li><a href="#" id="enabler" onclick="inject_payload('desabler'); return false">Activer</a></li>
+          <li><a href="#" id="desabler" onclick="inject_payload('enabler'); return false">Désactiver</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div id="message" class="message"></div>
+  <hr>
+  <div id="firmware"></div>
+  <div class="overlay" id="cache-overlay">
+    <div id="progress">
+      <div align="center" id="myBar"></div>
+    </div>
+  </div>
+  <footer>
+    <div id="fanprogress" class="fanprogress">
+    </div>
+    <div id="alertfw"></div>
+    <div id="cs-loader" class="cs-loader">
+      <div class="cs-loader-inner">
+        <label></label>
+        <label></label>
+        <label></label>
+        <label></label>
+        <label></label>
+        <label></label>
+      </div>
+    </div>
+  </footer>
+  <script>
+  </script>
+  <script src="assets/js/style.js"></script>
 </body>
 </html>
